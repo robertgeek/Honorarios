@@ -11,22 +11,25 @@ package com.mx.robertgeek;
  */
 public class ReciboDeHonorarios {
 
+    private final double IVA = 0.16;
+    private final double ISR = 0.10;
+    private final double IVA_INVERSA_FISICA = 1.16;
+    private final double IVA_INVERSA_MORAL = 0.953333;
+    
     private String tipo;
     private double subtotal;
     private double ivaTrasladado;
     private double ivaRetenido;
     private double isrRetenido;
     private double cantidadNeta;
-    private final double IVA = 0.16;
-    private final double ISR = 0.10;
-
+    
     public void calculaNetoCobrar(String tipo, double cantidad) {
         if (tipo.equals("fisica")) {
-            setSubtotal(cantidad / 1.16);
+            setSubtotal(cantidad / IVA_INVERSA_FISICA);
             setIvaTrasladado(getSubtotal() * IVA);
             setCantidadNeta(getSubtotal() + getIvaTrasladado());
         } else {
-            setSubtotal(cantidad / 0.953333);
+            setSubtotal(cantidad / IVA_INVERSA_MORAL);
             setIvaTrasladado(getSubtotal() * IVA);
             setIvaRetenido((getIvaTrasladado() / 3) * 2);
             setIsrRetenido(getSubtotal() * ISR);
@@ -46,6 +49,14 @@ public class ReciboDeHonorarios {
             setIsrRetenido(subtotal * ISR);
             setCantidadNeta((subtotal + getIvaTrasladado()) - (getIvaRetenido() + getIsrRetenido()));
         }
+    }
+
+    public void reiniciaValores() {
+        setSubtotal(0);
+        setIvaTrasladado(0);
+        setIvaRetenido(0);
+        setIsrRetenido(0);
+        setCantidadNeta(0);
     }
 
     /**
