@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mx.robertgeek;
 
 /**
  *
- * @author consulta
+ * @author robertgeek
  */
 public class ReciboDeHonorarios {
 
@@ -15,14 +10,14 @@ public class ReciboDeHonorarios {
     private final double ISR = 0.10;
     private final double IVA_INVERSA_FISICA = 1.16;
     private final double IVA_INVERSA_MORAL = 0.953333;
-    
+
     private String tipo;
     private double subtotal;
     private double ivaTrasladado;
     private double ivaRetenido;
     private double isrRetenido;
     private double cantidadNeta;
-    
+
     public void calculaNetoCobrar(String tipo, double cantidad) {
         if (tipo.equals("fisica")) {
             setSubtotal(cantidad / IVA_INVERSA_FISICA);

@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 /**
  *
- * @author robert
+ * @author robertgeek
+ *This program calculate the amount free tax for incomes in Mexico.
  */
 public class Main {
 
@@ -40,11 +41,11 @@ public class Main {
                     System.exit(0);
                 }
             }
-            System.out.println("Subtotal: " + Math.round(rh.getSubtotal() * 100) / 100.00);
+            System.out.println("Subtotal: "       + Math.round(rh.getSubtotal()      * 100) / 100.00);
             System.out.println("IVA Trasladado: " + Math.round(rh.getIvaTrasladado() * 100) / 100.00);
-            System.out.println("IVA Retenido: " + Math.round(rh.getIvaRetenido() * 100) / 100.00);
-            System.out.println("ISR Retenido: " + Math.round(rh.getIsrRetenido() * 100) / 100.00);
-            System.out.println("Total a percibir: " + Math.round(rh.getCantidadNeta() * 100) / 100.00 +"\n");
+            System.out.println("IVA Retenido: "   + Math.round(rh.getIvaRetenido()   * 100) / 100.00);
+            System.out.println("ISR Retenido: "   + Math.round(rh.getIsrRetenido()   * 100) / 100.00);
+            System.out.println("Total a percibir: " + Math.round(rh.getCantidadNeta()* 100) / 100.00 +"\n");
             rh.reiniciaValores();
         } while (opcion != 0);
     }
